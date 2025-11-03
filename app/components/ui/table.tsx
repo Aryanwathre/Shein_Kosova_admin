@@ -18,10 +18,26 @@ export const TR = ({ children }: { children: React.ReactNode }) => (
   <tr className="admin-tr">{children}</tr>
 );
 
-export const TH = ({ children }: { children: React.ReactNode }) => (
-  <th className="admin-th">{children}</th>
-);
+export function TH({
+  children,
+  style,
+  ...props
+}: React.HTMLAttributes<HTMLTableCellElement>) {
+  return (
+    <th style={style} {...props}>
+      {children}
+    </th>
+  );
+}
 
-export const TD = ({ children }: { children: React.ReactNode }) => (
-  <td className="admin-td">{children}</td>
-);
+export function TD({
+  children,
+  style,
+  ...props
+}: React.HTMLAttributes<HTMLTableCellElement>) {
+  return (
+    <td style={style} {...props}>
+      {children}
+    </td>
+  );
+}

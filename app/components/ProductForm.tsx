@@ -4,11 +4,25 @@ import { useState } from 'react';
 import { createProduct, updateProduct } from '../lib/api';
 import { useRouter } from 'next/navigation';
 
-export default function ProductForm({ product }: any) {
+type ProductFormType = {
+  productId: string;
+  productCode: string;
+  name: string;
+  description: string;
+  brand: string;
+  price: string | number;
+  averageRating: string | number;
+  enabled: boolean;
+  categoryId: string;
+  mainImageUrl: string;
+  detailImages: string[];
+};
+
+export default function ProductForm({ product }: { product?: any }) {
   const router = useRouter();
   const isEdit = !!product;
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<ProductFormType>({
     productId: product?.productId || '',
     productCode: product?.productCode || '',
     name: product?.name || '',
@@ -22,7 +36,7 @@ export default function ProductForm({ product }: any) {
     detailImages: product?.detailImages?.map((i: any) => i.imageUrl) || [''],
   });
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
@@ -33,9 +47,9 @@ export default function ProductForm({ product }: any) {
     setForm({ ...form, detailImages: updated });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (isEdit) await updateProduct(form);
+    if (isEdit) await updateProduct(form.productId, form);
     else await createProduct(form);
     router.push('/products');
   };
@@ -71,17 +85,35 @@ export default function ProductForm({ product }: any) {
       <div className="form-row">
         <div className="form-group">
           <label>Price ($)</label>
-          <input name="price" value={form.price} onChange={handleChange} className="input" type="number" />
+          <input
+            name="price"
+            value={form.price}
+            onChange={handleChange}
+            className="input"
+            type="number"
+          />
         </div>
         <div className="form-group">
           <label>Average Rating</label>
-          <input name="averageRating" value={form.averageRating} onChange={handleChange} className="input" type="number" step="0.1" />
+          <input
+            name="averageRating"
+            value={form.averageRating}
+            onChange={handleChange}
+            className="input"
+            type="number"
+            step="0.1"
+          />
         </div>
       </div>
 
       <div className="form-group">
         <label>Main Image URL</label>
-        <input name="mainImageUrl" value={form.mainImageUrl} onChange={handleChange} className="input" />
+        <input
+          name="mainImageUrl"
+          value={form.mainImageUrl}
+          onChange={handleChange}
+          className="input"
+        />
       </div>
 
       <div className="form-group">
