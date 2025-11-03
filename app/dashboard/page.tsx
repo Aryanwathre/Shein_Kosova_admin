@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Package, Percent, ShoppingBag } from "lucide-react";
-import { getProducts, getMarkup } from "@/lib/api"; // ✅ use api.ts helpers
+import { getProducts, getMarkup } from "@/app/lib/api"; // ✅ use api.ts helpers
 
 export default function DashboardPage() {
   const router = useRouter();

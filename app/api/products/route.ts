@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { db } from "@/app/lib/db";
 import { v4 as uuidv4 } from "uuid";
-import { getSession } from "@/lib/session";
+import { getSession } from "@/app/lib/session";
 
 export async function GET() {
   return NextResponse.json(db.getProducts());

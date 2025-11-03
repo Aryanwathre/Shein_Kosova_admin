@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Table, THead, TBody, TR, TH, TD } from '../../components/ui/table';
+import { Table, THead, TBody, TR, TH, TD } from '../components/ui/table';
 
 // Mock data for now
 const mockOrders = Array.from({ length: 32 }, (_, i) => ({

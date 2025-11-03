@@ -2,8 +2,8 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Sidebar from "@/components/Sidebar";
-import { isAuthenticated } from "@/lib/session";
+import Sidebar from "@/app/components/Sidebar";
+import { isAuthenticated } from "@/app/lib/session";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { getMarkup, updateMarkup } from '@/lib/api';
+import { getMarkup, updateMarkup } from '@/app/lib/api';
 
 export default function MarkupSettingsPage() {
   const [percentage, setPercentage] = useState<number | ''>('');

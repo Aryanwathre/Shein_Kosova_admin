@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { setAccessToken } from "@/lib/session";
+import { setAccessToken } from "@/app/lib/session";
 
 export default function LoginPage() {
   const router = useRouter();

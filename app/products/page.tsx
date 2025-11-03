@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { getProducts } from "../../lib/api";
-import { ProductTable } from "../../components/ProductTable";
-import BulkUploadModal from "@/components/BulkUploadModal";
+import { getProducts } from "../lib/api";
+import { ProductTable } from "../components/ProductTable";
+import BulkUploadModal from "@/app/components/BulkUploadModal";
 
 
 export default function ProductsPage() {

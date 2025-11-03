@@ -6,12 +6,11 @@ import {
   LayoutDashboard,
   Package,
   Percent,
-  Users,
   ShoppingBag,
   LogOut,
 } from "lucide-react";
 
-import Logo from "../public/logo3.png";
+import Logo from "../../public/logo3.png";
 
 const menuItems = [
   { name: "Dashboard", icon: <LayoutDashboard size={20} />, href: "/dashboard" },
